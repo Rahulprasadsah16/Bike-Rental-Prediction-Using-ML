@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Bike Rental Prediction</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+ <div class="login">
+	<h1>Predict Bike Rental Count </h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="number" name="season" placeholder="Season" required="required" />
+        <input type="number" name="year" placeholder="Year" required="required" />
+		<input type="number" name="month" placeholder="Month" required="required" />
+        <input type="number" name="weekday" placeholder="Weekday" required="required" />
+        <input type="number" name="working day" placeholder="Working Day" required="required" />
+        <input type="number" name="weathersit" placeholder="Weathers It" required="required" />
+        <input type="number" step=0.01 name="temperature" placeholder="Temperature" required="required" />
+        <input type="number" step=0.01 name="humidity" placeholder="Humidity" required="required" />
+        <input type="number" step=0.01 name="Windspeed" placeholder="Windspeed" required="required" />
+        
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+    
+
+   <br>
+   <br>
+
+ </div>
+<h3>{{ prediction_text }}</h3>
+
+</body>
+</html>
